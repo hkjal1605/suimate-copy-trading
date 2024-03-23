@@ -1,6 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
-import IndividualTradersModule from "@/app/modules/IndividualTradersPage";
+import IndividualTradersModule from "@/modules/IndividualTradersPage";
 
 export const metadata: Metadata = {
   title: "SuiMate - Individual Traders",

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import DropdownComponent from "../../../../components/Dropdown";
+import DropdownComponent from "../../../components/Dropdown";
 
 const TimeFilter = () => {
   const [timeFilter, setTimeFilter] = useState("30 days");

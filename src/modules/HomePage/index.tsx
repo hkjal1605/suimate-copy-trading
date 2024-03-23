@@ -1,5 +1,5 @@
-import IntroFilter from "@/app/modules/HomePage/components/IntroFilter";
-import TraderCard from "@/app/modules/HomePage/components/TraderCard";
+import IntroFilter from "@/modules/HomePage/components/IntroFilter";
+import TraderCard from "@/modules/HomePage/components/TraderCard";
 
 export default function HomePageModule() {
   return (

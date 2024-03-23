@@ -1,4 +1,4 @@
-import ContactPageModule from "@/app/modules/ContactPage";
+import ContactPageModule from "@/modules/ContactPage";
 
 export async function generateMetadata() {
   return {
