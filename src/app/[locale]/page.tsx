@@ -1,4 +1,4 @@
-import HomePageModule from "../modules/HomePage";
+import HomePageModule from "@/app/modules/HomePage";
 
 export async function generateMetadata() {
   return {
