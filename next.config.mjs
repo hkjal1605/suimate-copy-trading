@@ -34,6 +34,15 @@ export default withSentryConfig(
 
         return config;
       },
+      images: {
+        remotePatterns: [
+          {
+            protocol: 'https',
+            hostname: '*'
+          }
+        ],
+        minimumCacheTTL: 1500000
+      },
     }),
   ),
   {

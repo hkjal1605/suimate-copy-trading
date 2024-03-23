@@ -5,6 +5,8 @@ import { notFound } from 'next/navigation';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
 import { Nunito } from 'next/font/google'
 
+import Header from '@/components/Header';
+
 import { AppConfig } from '@/utils/AppConfig';
 
 export const metadata: Metadata = {
@@ -56,7 +58,10 @@ export default function RootLayout(props: {
           locale={props.params.locale}
           messages={messages}
         >
-          {props.children}
+          <div className='w-full h-full flex flex-col items-center justify-center'>
+            <Header />
+            {props.children}
+          </div>
         </NextIntlClientProvider>
       </body>
     </html>

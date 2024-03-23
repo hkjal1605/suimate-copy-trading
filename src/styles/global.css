@@ -3,5 +3,9 @@
 @tailwind utilities;
 
 body {
-  background-color: #14171A;
+  background-color: #0B0D0E;
+}
+
+.ant-dropdown-menu {
+  background-color: #33383D !important;
 }
