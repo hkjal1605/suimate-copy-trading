@@ -1,45 +1,45 @@
-import '@/styles/global.css';
+import "@/styles/global.css";
 
-import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import { NextIntlClientProvider, useMessages } from 'next-intl';
-import { Nunito } from 'next/font/google'
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { NextIntlClientProvider, useMessages } from "next-intl";
+import { Nunito } from "next/font/google";
 
-import Header from '@/components/Header';
+import Header from "@/components/Header";
 
-import { AppConfig } from '@/utils/AppConfig';
+import { AppConfig } from "@/utils/AppConfig";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   icons: [
     {
-      rel: 'apple-touch-icon',
-      url: '/apple-touch-icon.png',
+      rel: "apple-touch-icon",
+      url: "/apple-touch-icon.png",
     },
     {
-      rel: 'icon',
-      type: 'image/png',
-      sizes: '32x32',
-      url: '/favicon-32x32.png',
+      rel: "icon",
+      type: "image/png",
+      sizes: "32x32",
+      url: "/favicon-32x32.png",
     },
     {
-      rel: 'icon',
-      type: 'image/png',
-      sizes: '16x16',
-      url: '/favicon-16x16.png',
+      rel: "icon",
+      type: "image/png",
+      sizes: "16x16",
+      url: "/favicon-16x16.png",
     },
     {
-      rel: 'icon',
-      url: '/favicon.ico',
+      rel: "icon",
+      url: "/favicon.ico",
     },
   ],
 };
 
 const nunito = Nunito({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['400', '600'],
-})
-
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "600"],
+});
 
 export default function RootLayout(props: {
   children: React.ReactNode;
@@ -58,9 +58,12 @@ export default function RootLayout(props: {
           locale={props.params.locale}
           messages={messages}
         >
-          <div className='w-full h-full flex flex-col items-center justify-center'>
+          <div className="w-full h-full flex flex-col items-center justify-center">
             <Header />
-            {props.children}
+            <div className="w-full max-h-[calc(100vh-115px)] min-h-[calc(100vh-115px)] overflow-auto">
+              {props.children}
+            </div>
+            <Footer />
           </div>
         </NextIntlClientProvider>
       </body>

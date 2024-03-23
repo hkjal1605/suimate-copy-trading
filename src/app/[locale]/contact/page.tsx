@@ -1,4 +1,4 @@
-import HomePageModule from "../modules/HomePage";
+import ContactPageModule from "@/app/modules/ContactPage";
 
 export async function generateMetadata() {
   return {
@@ -9,5 +9,5 @@ export async function generateMetadata() {
 }
 
 export default function Index() {
-  return <HomePageModule />;
+  return <ContactPageModule />;
 }
