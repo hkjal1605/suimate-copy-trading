@@ -11,11 +11,10 @@ const ContactPageModule = () => {
         I have been building on Sui and Aptos since early 2022. I was the founding engineer at Martian Wallet
       </p>
       <p className="text-3xl font-semibold text-black-900">
-        I am building this platform for the ThinkSui hackathon
+        Currently I am building this project as a sole developer
       </p>
       <p className="text-3xl font-semibold text-black-900">
-        And I am looking for a founding team to take this forward into a big
-        project in the Sui defi space
+        Please reach me out if you have a feedback or want to join me as a builder or investor in this project
       </p>
       <p className="text-3xl font-semibold text-black-900">
         Ping me up on Telegram or X if you are interested
