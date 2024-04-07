@@ -9,14 +9,14 @@ type State = {
 };
 
 type Action = {
-  setLeaderboard: (leaderboardData: State['topTraders']) => void;
+  setTopTraders: (tradersData: State['topTraders']) => void;
 };
 
 // using createStore from zustand/vanilla instead of store because we want to use this state outside of react components
 export const topTradersStore = createStore<State & Action>()((set) => ({
   topTraders: [],
   loaded: false,
-  setLeaderboard: (topTraders) =>
+  setTopTraders: (topTraders) =>
     set(() => ({
       topTraders,
       loaded: true
