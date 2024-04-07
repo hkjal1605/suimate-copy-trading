@@ -1,0 +1,1 @@
+export const GET_TOP_TRADERS_ENDPOINT = 'https://gettoptraders-ylp2jhbl2q-uc.a.run.app';
