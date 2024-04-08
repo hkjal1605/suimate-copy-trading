@@ -8,7 +8,7 @@ const PastTrades = () => {
   console.log(trades);
 
   return (
-    <div className="w-full flex flex-col items-start justify-start p-3 gap-3 max-h-[50%] overflow-hidden">
+    <div className="w-full flex flex-col items-start justify-start p-3 gap-3 max-h-[50%] min-h-[50%] overflow-hidden">
       <p className="text-base text-black-800">Past Trades</p>
       <div className="w-full flex items-center justify-between">
         <p className="text-sm text-black-700 w-full flex-[1.2] text-left">

@@ -8,7 +8,7 @@ const TradersPositions = () => {
   console.log(positions);
 
   return (
-    <div className="w-full flex flex-col items-start justify-start p-3 gap-3 max-h-full overflow-hidden border-b-[1px] border-black-400">
+    <div className="w-full flex flex-col items-start justify-start p-3 gap-3 max-h-[50%] min-h-[50%] overflow-hidden border-b-[1px] border-black-400">
       <p className="text-base text-black-800">Open Positions</p>
       <div className="w-full flex items-center justify-between">
         <p className="text-sm text-black-700 w-full flex-[1.2] text-left">Market / Avg. Entry</p>
