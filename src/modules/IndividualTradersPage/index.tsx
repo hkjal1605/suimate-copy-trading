@@ -9,6 +9,7 @@ import TradersStats from './components/TraderStats';
 import { fetchTradersPositions } from './utils/fetchTradersPositions';
 import TradersPositions from './components/TradersPositions';
 import PastTrades from './components/PastTrades';
+import { fetchPastTrades } from './utils/fetchPastTrades';
 
 export default function IndividualTradersModule() {
   const pathname = usePathname();
@@ -17,6 +18,7 @@ export default function IndividualTradersModule() {
   useEffect(() => {
     fetchTradersStats(address);
     fetchTradersPositions(address);
+    fetchPastTrades(address);
   }, [address]);
 
   return (

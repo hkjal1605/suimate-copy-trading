@@ -1,5 +1,5 @@
 export type GetPastTradesQuery = {
   address: string;
-  limit: number;
+  limit?: number;
   endTimestamp: number;
 }

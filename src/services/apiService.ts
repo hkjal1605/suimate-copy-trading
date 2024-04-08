@@ -22,9 +22,9 @@ export default class ApiService {
   }
 
   static getPastTrades(data: GetPastTradesQuery) {
-    const { address, limit, endTimestamp } = data;
+    const { address, endTimestamp } = data;
     return axios.get(
-      `${GET_PAST_TRADES_ENDPOINT}?address=${address}&limit=${limit}&endTimestamp=${endTimestamp}`
+      `${GET_PAST_TRADES_ENDPOINT}?address=${address}&endTimestamp=${endTimestamp}`
     );
   }
 }

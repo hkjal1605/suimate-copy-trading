@@ -4,7 +4,7 @@ import createBoundedUseStore from '@/utils/createBoundedUseStore';
 import { TradersPositionsType } from '@/types/dataTypes/tradersPositions';
 
 type State = {
-  positions: TradersPositionsType[]
+  positions: TradersPositionsType[];
   loaded: boolean;
 };
 
@@ -24,8 +24,6 @@ export const tradersPositionsStore = createStore<State & Action>()((set) => ({
 }));
 
 // Create a hook to be used inside react components
-const useTradersPositionsStore = createBoundedUseStore(
-  tradersPositionsStore
-);
+const useTradersPositionsStore = createBoundedUseStore(tradersPositionsStore);
 
 export default useTradersPositionsStore;
