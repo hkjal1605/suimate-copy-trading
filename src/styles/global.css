@@ -9,3 +9,7 @@ body {
 .ant-dropdown-menu {
   background-color: #33383D !important;
 }
+
+.ant-modal-content {
+  padding: 0 !important;
+}

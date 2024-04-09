@@ -7,6 +7,7 @@ import { OrderTradersBy } from './types/orderTradersBy';
 import fetchTopTraders from './utils/fetchTopTraders';
 import useTopTradersStore from '@/stores/useTopTradersStore';
 import Spinner from '@/components/Spinner';
+import PrototypeInfoModal from './components/PrototypeInfoModal';
 
 export default function HomePageModule() {
   const [topFilter, setTopFilter] = useState<OrderTradersBy>('netPnl');
@@ -33,6 +34,7 @@ export default function HomePageModule() {
           </div>
         )}
       </div>
+      <PrototypeInfoModal />
     </div>
   );
 }
