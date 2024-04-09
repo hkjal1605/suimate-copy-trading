@@ -45,45 +45,45 @@ const PrototypeInfoModal = () => {
           space
         </p>
         <div className="flex w-full justify-center items-center gap-5">
-        <a
-          href="https://t.me/me_hkj"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          <Image
-            src="/assets/images/social/telegram.svg"
-            alt="Telegram"
-            height={50}
-            width={50}
-          />
-        </a>
-        <a
-          href="https://twitter.com/hkj1605"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          <Image
-            src="/assets/images/social/twitter.svg"
-            alt="X"
-            height={50}
-            width={50}
-            className="rounded-full"
-          />
-        </a>
-        <a
-          href="https://discordapp.com/channels/@me/682925280536428675"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          <Image
-            src="/assets/images/social/discord.svg"
-            alt="X"
-            height={50}
-            width={50}
-            className="rounded-full"
-          />
-        </a>
-      </div>
+          <a
+            href="https://t.me/me_hkj"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <Image
+              src="/assets/images/social/telegram.svg"
+              alt="Telegram"
+              height={50}
+              width={50}
+            />
+          </a>
+          <a
+            href="https://twitter.com/hkj1605"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <Image
+              src="/assets/images/social/twitter.svg"
+              alt="X"
+              height={50}
+              width={50}
+              className="rounded-full"
+            />
+          </a>
+          <a
+            href="https://discordapp.com/channels/@me/682925280536428675"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <Image
+              src="/assets/images/social/discord.svg"
+              alt="X"
+              height={50}
+              width={50}
+              className="rounded-full"
+            />
+          </a>
+        </div>
       </div>
     </CustomModal>
   );

@@ -1,13 +1,18 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import Avatar from 'boring-avatars';
 import getEllipsisTxt from '@/utils/getEllipsisText';
 import Image from 'next/image';
+import ComingSoonModal from '@/components/ComingSoonModal';
 
 interface IPropType {
   address: string;
 }
 
 const TraderHeader = (props: IPropType) => {
+  const [isComingSoonModalOpen, setIsComingSoonModalOpen] = useState(false);
+  const [feature, setFeature] = useState('');
   const { address } = props;
 
   return (
@@ -58,7 +63,11 @@ const TraderHeader = (props: IPropType) => {
           <p className="text-xs text-blue-200">Bluefin</p>
         </div>
       </div>
-      <a href="https://trade.bluefin.io/ETH-PERP" target="_blank" className='ml-auto'>
+      <a
+        href="https://trade.bluefin.io/ETH-PERP"
+        target="_blank"
+        className="ml-auto"
+      >
         <div className="flex justify-center items-center gap-1.5 cursor-pointer">
           <p className="text-base text-black-800">Trade on</p>
           <Image
@@ -71,7 +80,13 @@ const TraderHeader = (props: IPropType) => {
         </div>
       </a>
       <div className=" h-10 w-px bg-black-400"></div>
-      <div className="flex justify-center items-center gap-1 cursor-pointer">
+      <div
+        className="flex justify-center items-center gap-1 cursor-pointer"
+        onClick={() => {
+          setFeature('Notification Alerts')
+          setIsComingSoonModalOpen(true);
+        }}
+      >
         <Image
           src="/assets/images/bell.svg"
           alt="bell"
@@ -80,6 +95,27 @@ const TraderHeader = (props: IPropType) => {
         />
         <p className="text-base text-black-800">Notify on New Trades</p>
       </div>
+      <div className=" h-10 w-px bg-black-400"></div>
+      <div
+        className="flex justify-center items-center gap-1 cursor-pointer"
+        onClick={() => {
+          setFeature('Place Trade')
+          setIsComingSoonModalOpen(true);
+        }}
+      >
+        <Image
+          src="/assets/images/trade.svg"
+          alt="trade"
+          width={16}
+          height={16}
+        />
+        <p className="text-base text-black-800">Place a Trade</p>
+      </div>
+      <ComingSoonModal
+        isOpen={isComingSoonModalOpen}
+        setIsOpen={setIsComingSoonModalOpen}
+        featureName={feature}
+      />
     </div>
   );
 };
