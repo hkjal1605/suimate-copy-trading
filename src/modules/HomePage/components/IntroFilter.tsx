@@ -2,6 +2,7 @@ import React from "react";
 import TopFilter from "./TopFilter";
 import Image from "next/image";
 import { OrderTradersBy } from "../types/orderTradersBy";
+import DexFilter from "./DexFilter";
 
 interface IPropType {
   topFilter: OrderTradersBy;
@@ -16,7 +17,7 @@ const IntroFilter = (props: IPropType) => {
       <p className="text-xl text-black-1000">Copy on-chain traders with</p>
       <TopFilter topFilter={topFilter} setTopFilter={setTopFilter} />
       <p className="text-xl text-black-1000 mr-1.5">trading on</p>
-      <div className="flex items-center justify-start">
+      {/* <div className="flex items-center justify-start">
         <Image
           src="/assets/images/platforms/bluefin.png"
           alt="bluefin"
@@ -24,7 +25,8 @@ const IntroFilter = (props: IPropType) => {
           height={20}
         />
         <p className="text-xl text-blue-200 ml-1.5">Bluefin</p>
-      </div>
+      </div> */}
+      <DexFilter />
     </div>
   );
 };
