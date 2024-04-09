@@ -1,1 +1,1 @@
-export const SUI_DECIMALS = 9
+export const SUI_DECIMALS = 9;

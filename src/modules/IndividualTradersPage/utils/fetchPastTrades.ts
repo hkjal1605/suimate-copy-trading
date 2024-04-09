@@ -1,6 +1,6 @@
-import { logger } from '@/utils/Logger';
 import ApiService from '@/services/apiService';
 import { pastTradesStore } from '@/stores/usePastTradesStore';
+import { logger } from '@/utils/Logger';
 
 export const fetchPastTrades = async (address: string) => {
   try {
@@ -10,7 +10,7 @@ export const fetchPastTrades = async (address: string) => {
 
     const response = await ApiService.getPastTrades({
       address,
-      endTimestamp: 1680933000670,
+      endTimestamp: 1680933000670
     });
 
     pastTradesStore.setState({

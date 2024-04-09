@@ -1,7 +1,7 @@
 import { createStore } from 'zustand/vanilla';
 
+import type { PastTradesType } from '@/types/dataTypes/pastTrades';
 import createBoundedUseStore from '@/utils/createBoundedUseStore';
-import { PastTradesType } from '@/types/dataTypes/pastTrades';
 
 type State = {
   trades: PastTradesType[];

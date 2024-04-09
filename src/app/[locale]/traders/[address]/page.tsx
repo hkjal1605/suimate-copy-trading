@@ -1,9 +1,11 @@
-import React from "react";
-import { Metadata } from "next";
-import IndividualTradersModule from "@/modules/IndividualTradersPage";
+import React from 'react';
+
+import type { Metadata } from 'next';
+
+import IndividualTradersModule from '@/modules/IndividualTradersPage';
 
 export const metadata: Metadata = {
-  title: "SuiMate - Individual Traders",
+  title: 'SuiMate - Individual Traders'
 };
 
 export default function Index() {

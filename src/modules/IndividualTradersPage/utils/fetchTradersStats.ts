@@ -1,6 +1,6 @@
-import { logger } from '@/utils/Logger';
 import ApiService from '@/services/apiService';
 import { tradersStatsStore } from '@/stores/useTradersStats';
+import { logger } from '@/utils/Logger';
 
 export const fetchTradersStats = async (address: string) => {
   try {

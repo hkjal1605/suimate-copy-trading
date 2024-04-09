@@ -1,8 +1,10 @@
+import React from 'react';
+
+import { notification } from 'antd';
+import Image from 'next/image';
+
 import PrimaryButton from '@/components/PrimaryButton';
 import mixpanelAnalytics from '@/utils/Analytics/mixpanel';
-import Image from 'next/image';
-import React from 'react';
-import { notification } from 'antd';
 
 const ComingSoon = () => {
   return (

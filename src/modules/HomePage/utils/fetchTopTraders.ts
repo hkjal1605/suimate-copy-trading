@@ -1,7 +1,8 @@
-import { logger } from '@/utils/Logger';
-import { OrderTradersBy } from '../types/orderTradersBy';
 import ApiService from '@/services/apiService';
 import { topTradersStore } from '@/stores/useTopTradersStore';
+import { logger } from '@/utils/Logger';
+
+import type { OrderTradersBy } from '../types/orderTradersBy';
 
 const fetchTopTraders = async (orderBy: OrderTradersBy) => {
   try {

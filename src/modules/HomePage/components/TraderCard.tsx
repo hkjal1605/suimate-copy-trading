@@ -1,15 +1,16 @@
 'use client';
 
 import React, { useState } from 'react';
-import Image from 'next/image';
+
 import Avatar from 'boring-avatars';
-import PrimaryButton from '@/components/PrimaryButton';
-// import TraderCardChart from "./TraderCardChart";
+import Image from 'next/image';
 import Link from 'next/link';
-import { TopTradersType } from '@/types/dataTypes/topTraders';
+
+import ComingSoonModal from '@/components/ComingSoonModal';
+import PrimaryButton from '@/components/PrimaryButton';
+import type { TopTradersType } from '@/types/dataTypes/topTraders';
 import getEllipsisTxt from '@/utils/getEllipsisText';
 import { isBignumberPositive, toDecimalString } from '@/utils/parseBignum';
-import ComingSoonModal from '@/components/ComingSoonModal';
 
 interface IPropType {
   trader: TopTradersType;

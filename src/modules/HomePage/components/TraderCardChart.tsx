@@ -1,14 +1,15 @@
-import React from "react";
-import { VictoryLine, VictoryChart, VictoryAxis } from "victory";
+import React from 'react';
+
+import { VictoryLine, VictoryChart, VictoryAxis } from 'victory';
 
 function CustomClip({ ...props }) {
   return (
-    <defs key={"clips"}>
+    <defs key="clips">
       <clipPath id="clip-path-1">
-        <rect x={"0"} y={0} width={"100%"} height={props.scale.y(3)} />
+        <rect x="0" y={0} width="100%" height={props.scale.y(3)} />
       </clipPath>
-      <clipPath id={"clip-path-2"}>
-        <rect x={"0"} y={props.scale.y(3)} width={"100%"} height={"100%"} />
+      <clipPath id="clip-path-2">
+        <rect x="0" y={props.scale.y(3)} width="100%" height="100%" />
       </clipPath>
     </defs>
   );
@@ -20,10 +21,10 @@ const TraderCardChart = () => {
       <VictoryLine
         style={{
           data: {
-            stroke: "green",
+            stroke: 'green',
             strokeWidth: 2,
-            clipPath: "url(#clip-path-1)",
-          },
+            clipPath: 'url(#clip-path-1)'
+          }
         }}
         interpolation="step"
         data={[
@@ -32,16 +33,16 @@ const TraderCardChart = () => {
           { x: 2, y: 5 },
           { x: 3, y: 4 },
           { x: 4, y: 4 },
-          { x: 5, y: 7 },
+          { x: 5, y: 7 }
         ]}
       />
       <VictoryLine
         style={{
           data: {
-            stroke: "red",
+            stroke: 'red',
             strokeWidth: 2,
-            clipPath: "url(#clip-path-2)",
-          },
+            clipPath: 'url(#clip-path-2)'
+          }
         }}
         interpolation="step"
         data={[
@@ -50,15 +51,15 @@ const TraderCardChart = () => {
           { x: 2, y: 5 },
           { x: 3, y: 4 },
           { x: 4, y: 4 },
-          { x: 5, y: 7 },
+          { x: 5, y: 7 }
         ]}
       />
       <CustomClip />
       <VictoryAxis
         style={{
-          axis: { stroke: "transparent" },
-          ticks: { stroke: "transparent" },
-          tickLabels: { fill: "transparent" },
+          axis: { stroke: 'transparent' },
+          ticks: { stroke: 'transparent' },
+          tickLabels: { fill: 'transparent' }
         }}
       />
     </VictoryChart>

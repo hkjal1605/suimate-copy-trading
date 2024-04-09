@@ -1,14 +1,13 @@
 import '@/styles/global.css';
 
 import type { Metadata } from 'next';
+import { Nunito } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
-import { Nunito } from 'next/font/google';
 
-import Header from '@/components/Header';
-
-import { AppConfig } from '@/utils/AppConfig';
 import Footer from '@/components/Footer';
+import Header from '@/components/Header';
+import { AppConfig } from '@/utils/AppConfig';
 
 export const metadata: Metadata = {
   icons: [

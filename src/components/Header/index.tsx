@@ -1,9 +1,10 @@
-"use client";
+'use client';
 
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import React from 'react';
+
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const Header = () => {
   const pathname = usePathname();
@@ -43,8 +44,8 @@ const Header = () => {
           </p>
         </Link>
         <div
-          className={`absolute bottom-[-25px] w-32 bg-blue-200 h-2 rounded-t transition-all duration-300 ${pathname === "/" ? "left-0" : pathname === "/markets" ? "left-32" : "left-64"}`}
-        ></div>
+          className={`absolute bottom-[-25px] w-32 bg-blue-200 h-2 rounded-t transition-all duration-300 ${pathname === '/' ? 'left-0' : pathname === '/markets' ? 'left-32' : 'left-64'}`}
+        />
       </div>
     </div>
   );

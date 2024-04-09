@@ -24,8 +24,6 @@ export const topTradersStore = createStore<State & Action>()((set) => ({
 }));
 
 // Create a hook to be used inside react components
-const useTopTradersStore = createBoundedUseStore(
-  topTradersStore
-);
+const useTopTradersStore = createBoundedUseStore(topTradersStore);
 
 export default useTopTradersStore;

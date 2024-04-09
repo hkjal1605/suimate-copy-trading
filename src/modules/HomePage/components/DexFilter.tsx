@@ -1,8 +1,10 @@
 'use client';
 
 import React from 'react';
-import DropdownComponent from '@/components/Dropdown';
+
 import Image from 'next/image';
+
+import DropdownComponent from '@/components/Dropdown';
 
 const DexFilter = () => {
   return (

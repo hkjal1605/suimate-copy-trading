@@ -6,6 +6,6 @@ export default {
   schema: './src/models/Schema.ts',
   driver: 'libsql',
   dbCredentials: {
-    url: process.env.DATABASE_URL ?? '',
-  },
+    url: process.env.DATABASE_URL ?? ''
+  }
 } satisfies Config;

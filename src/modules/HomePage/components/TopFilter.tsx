@@ -1,8 +1,10 @@
 'use client';
 
 import React from 'react';
+
 import DropdownComponent from '@/components/Dropdown';
-import { OrderTradersBy } from '../types/orderTradersBy';
+
+import type { OrderTradersBy } from '../types/orderTradersBy';
 
 interface IPropType {
   topFilter: OrderTradersBy;
@@ -39,7 +41,7 @@ const TopFilter = (props: IPropType) => {
             </p>
           ),
           key: 0
-        }
+        };
       })}
     />
   );

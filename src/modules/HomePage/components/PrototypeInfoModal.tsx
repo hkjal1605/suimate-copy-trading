@@ -1,7 +1,10 @@
 'use client';
-import CustomModal from '@/components/CustomModal';
-import Image from 'next/image';
+
 import React, { useState } from 'react';
+
+import Image from 'next/image';
+
+import CustomModal from '@/components/CustomModal';
 
 const PrototypeInfoModal = () => {
   const [isOpen, setIsOpen] = useState(true);

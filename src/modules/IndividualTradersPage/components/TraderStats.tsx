@@ -1,8 +1,9 @@
 'use client';
 
+import React from 'react';
+
 import useTradersStats from '@/stores/useTradersStats';
 import { isBignumberPositive, toDecimalString } from '@/utils/parseBignum';
-import React from 'react';
 
 const TradersStats = () => {
   const { stats } = useTradersStats();

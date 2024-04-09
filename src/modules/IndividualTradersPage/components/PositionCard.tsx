@@ -1,10 +1,12 @@
+import React from 'react';
+
+import Image from 'next/image';
+
 import { SUI_DECIMALS } from '@/constants';
 import MarketsData from '@/constants/markets';
-import { TradersPositionsType } from '@/types/dataTypes/tradersPositions';
+import type { TradersPositionsType } from '@/types/dataTypes/tradersPositions';
 import { capitalizeFirstLetter } from '@/utils/capitaliseFirstLetter';
 import { toDecimalString } from '@/utils/parseBignum';
-import Image from 'next/image';
-import React from 'react';
 
 interface IPropType {
   position: TradersPositionsType;

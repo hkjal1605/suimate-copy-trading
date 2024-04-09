@@ -9,4 +9,4 @@ export type TradersStatsType = {
   avgRoi: number;
   totalMarginUsed: number;
   address: string;
-}
+};

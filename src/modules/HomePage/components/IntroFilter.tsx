@@ -1,8 +1,8 @@
-import React from "react";
-import TopFilter from "./TopFilter";
-import Image from "next/image";
-import { OrderTradersBy } from "../types/orderTradersBy";
-import DexFilter from "./DexFilter";
+import React from 'react';
+
+import DexFilter from './DexFilter';
+import TopFilter from './TopFilter';
+import type { OrderTradersBy } from '../types/orderTradersBy';
 
 interface IPropType {
   topFilter: OrderTradersBy;

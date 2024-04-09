@@ -7,7 +7,7 @@ import { AppConfig } from './utils/AppConfig';
 const intlMiddleware = createMiddleware({
   locales: AppConfig.locales,
   localePrefix: AppConfig.localePrefix,
-  defaultLocale: AppConfig.defaultLocale,
+  defaultLocale: AppConfig.defaultLocale
 });
 
 export default authMiddleware({
@@ -25,9 +25,9 @@ export default authMiddleware({
     if (!auth.userId && !auth.isPublicRoute) {
       return redirectToSignIn({ returnBackUrl: req.url });
     }
-  },
+  }
 });
 
 export const config = {
-  matcher: ['/((?!.+\\.[\\w]+$|_next).*)', '/', '/(api|trpc)(.*)'],
+  matcher: ['/((?!.+\\.[\\w]+$|_next).*)', '/', '/(api|trpc)(.*)']
 };

@@ -1,11 +1,14 @@
 'use client';
 
-import CustomModal from '@/components/CustomModal';
-import Image from 'next/image';
 import React, { useEffect } from 'react';
-import PrimaryButton from '../PrimaryButton';
+
+import { notification } from 'antd';
+import Image from 'next/image';
+
+import CustomModal from '@/components/CustomModal';
 import mixpanelAnalytics from '@/utils/Analytics/mixpanel';
-import {notification} from 'antd'
+
+import PrimaryButton from '../PrimaryButton';
 
 interface IPropType {
   isOpen: boolean;
@@ -41,15 +44,15 @@ const ComingSoonModal = (props: IPropType) => {
           Working very hard to ship this feature soon!
         </p>
         <p className="text-sm text-black-800 mb-4">
-          Vote for this feature below so that I know what's needed the most
+          Vote for this feature below so that I know what&apos;s needed the most
         </p>
         <PrimaryButton
           className="w-2/3"
           onClick={() => {
             mixpanelAnalytics.track('Feature Vote', { featureName });
             notification.success({
-              message: 'Vote Submitted',
-            })
+              message: 'Vote Submitted'
+            });
           }}
         >
           <p className="text-sm text-black-800">

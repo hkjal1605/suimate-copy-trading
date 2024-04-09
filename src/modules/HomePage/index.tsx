@@ -1,13 +1,15 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+
+import Spinner from '@/components/Spinner';
 import IntroFilter from '@/modules/HomePage/components/IntroFilter';
 import TraderCard from '@/modules/HomePage/components/TraderCard';
-import { useEffect, useState } from 'react';
-import { OrderTradersBy } from './types/orderTradersBy';
-import fetchTopTraders from './utils/fetchTopTraders';
 import useTopTradersStore from '@/stores/useTopTradersStore';
-import Spinner from '@/components/Spinner';
+
 import PrototypeInfoModal from './components/PrototypeInfoModal';
+import type { OrderTradersBy } from './types/orderTradersBy';
+import fetchTopTraders from './utils/fetchTopTraders';
 
 export default function HomePageModule() {
   const [topFilter, setTopFilter] = useState<OrderTradersBy>('netPnl');
@@ -25,7 +27,7 @@ export default function HomePageModule() {
         {loaded ? (
           <div className="w-full grid grid-cols-3 gap-4">
             {topTraders.map((trader) => (
-              <TraderCard trader={trader} />
+              <TraderCard trader={trader} key={trader.address} />
             ))}
           </div>
         ) : (

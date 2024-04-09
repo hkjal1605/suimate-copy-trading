@@ -1,10 +1,12 @@
 'use client';
 
 import React, { useState } from 'react';
+
 import Avatar from 'boring-avatars';
-import getEllipsisTxt from '@/utils/getEllipsisText';
 import Image from 'next/image';
+
 import ComingSoonModal from '@/components/ComingSoonModal';
+import getEllipsisTxt from '@/utils/getEllipsisText';
 
 interface IPropType {
   address: string;
@@ -79,11 +81,11 @@ const TraderHeader = (props: IPropType) => {
           <p className="text-base text-blue-200 font-semibold">Bluefin</p>
         </div>
       </a>
-      <div className=" h-10 w-px bg-black-400"></div>
+      <div className=" h-10 w-px bg-black-400" />
       <div
         className="flex justify-center items-center gap-1 cursor-pointer"
         onClick={() => {
-          setFeature('Notification Alerts')
+          setFeature('Notification Alerts');
           setIsComingSoonModalOpen(true);
         }}
       >
@@ -95,11 +97,11 @@ const TraderHeader = (props: IPropType) => {
         />
         <p className="text-base text-black-800">Notify on New Trades</p>
       </div>
-      <div className=" h-10 w-px bg-black-400"></div>
+      <div className=" h-10 w-px bg-black-400" />
       <div
         className="flex justify-center items-center gap-1 cursor-pointer"
         onClick={() => {
-          setFeature('Place Trade')
+          setFeature('Place Trade');
           setIsComingSoonModalOpen(true);
         }}
       >

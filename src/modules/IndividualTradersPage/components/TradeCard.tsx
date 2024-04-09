@@ -1,10 +1,12 @@
+import React from 'react';
+
+import Image from 'next/image';
+
 import { SUI_DECIMALS } from '@/constants';
 import MarketsData from '@/constants/markets';
-import { PastTradesType } from '@/types/dataTypes/pastTrades';
+import type { PastTradesType } from '@/types/dataTypes/pastTrades';
 import { capitalizeFirstLetter } from '@/utils/capitaliseFirstLetter';
 import { isBignumberPositive, toDecimalString } from '@/utils/parseBignum';
-import Image from 'next/image';
-import React from 'react';
 
 interface IPropType {
   trade: PastTradesType;

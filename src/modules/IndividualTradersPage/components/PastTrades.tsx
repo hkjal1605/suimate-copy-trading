@@ -1,5 +1,7 @@
 import React from 'react';
+
 import usePastTradesStore from '@/stores/usePastTradesStore';
+
 import TradeCard from './TradeCard';
 
 const PastTrades = () => {

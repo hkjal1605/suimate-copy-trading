@@ -1,11 +1,12 @@
-import React, { type ReactNode } from "react";
-import { Dropdown } from "antd";
-import { DownOutlined } from "@ant-design/icons";
-import type { MenuProps } from "antd";
+import React, { type ReactNode } from 'react';
+
+import { DownOutlined } from '@ant-design/icons';
+import { Dropdown } from 'antd';
+import type { MenuProps } from 'antd';
 
 interface IPropType {
   title: ReactNode;
-  menuItems: MenuProps["items"];
+  menuItems: MenuProps['items'];
 }
 
 const DropdownComponent = (props: IPropType) => {
@@ -19,7 +20,7 @@ const DropdownComponent = (props: IPropType) => {
           {React.cloneElement(menu as React.ReactElement)}
         </div>
       )}
-      trigger={["click"]}
+      trigger={['click']}
     >
       <a onClick={(e) => e.preventDefault()}>
         <div className="cursor-pointer flex justify-center items-center gap-1 bg-black-200 rounded px-3 py-0.5 border-[1px] border-black-500">

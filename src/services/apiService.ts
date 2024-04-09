@@ -1,12 +1,14 @@
 import axios from 'axios';
-import { GetTopTradersApiPayload } from '@/types/apiPayload/getTopTraders';
+
+import type { GetPastTradesQuery } from '@/types/apiPayload/getPastTrades';
+import type { GetTopTradersApiPayload } from '@/types/apiPayload/getTopTraders';
+
 import {
   GET_PAST_TRADES_ENDPOINT,
   GET_TOP_TRADERS_ENDPOINT,
   GET_TRADER_POSITIONS_ENDPOINT,
   GET_TRADER_STATS_ENDPOINT
 } from './constants';
-import { GetPastTradesQuery } from '@/types/apiPayload/getPastTrades';
 
 export default class ApiService {
   static getTopTraders(data: GetTopTradersApiPayload) {

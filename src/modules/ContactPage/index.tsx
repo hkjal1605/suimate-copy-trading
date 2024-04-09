@@ -1,5 +1,6 @@
-import Image from "next/image";
-import React from "react";
+import React from 'react';
+
+import Image from 'next/image';
 
 const ContactPageModule = () => {
   return (
@@ -8,23 +9,21 @@ const ContactPageModule = () => {
         Hello, I am Harsh Kumar Jha
       </p>
       <p className="text-3xl font-semibold text-black-900 text-center">
-        I have been building on Sui and Aptos since early 2022. I was the founding engineer at Martian Wallet
+        I have been building on Sui and Aptos since early 2022. I was the
+        founding engineer at Martian Wallet
       </p>
       <p className="text-3xl font-semibold text-black-900">
         Currently I am building this project as a sole developer
       </p>
       <p className="text-3xl font-semibold text-black-900">
-        Please reach me out if you have a feedback or want to join me as a builder or investor in this project
+        Please reach me out if you have a feedback or want to join me as a
+        builder or investor in this project
       </p>
       <p className="text-3xl font-semibold text-black-900">
         Ping me up on Telegram or X if you are interested
       </p>
       <div className="flex w-full justify-center items-center gap-8">
-        <a
-          href="https://t.me/me_hkj"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
+        <a href="https://t.me/me_hkj" target="_blank" rel="noreferrer noopener">
           <Image
             src="/assets/images/social/telegram.svg"
             alt="Telegram"

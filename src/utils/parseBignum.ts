@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js';
 
-import { logger } from '@/utils/Logger';
 import { SUI_DECIMALS } from '@/constants';
+import { logger } from '@/utils/Logger';
 
 export const toDecimalValue = (balance: number, decimals: number) => {
   // if (balance < 0) return NaN;
@@ -30,10 +30,13 @@ export const toDecimalString = (
     // if (!/^\d+$/.test(balance)) return NaN;
 
     // Return the final value
-    return toDecimalBigNumberValue(BigNumber(balance), decimals).toLocaleString('en-US', {
-      maximumFractionDigits: precision,
-      minimumFractionDigits: precision,
-    })
+    return toDecimalBigNumberValue(BigNumber(balance), decimals).toLocaleString(
+      'en-US',
+      {
+        maximumFractionDigits: precision,
+        minimumFractionDigits: precision
+      }
+    );
   } catch (error) {
     logger.error(error);
     return 0;

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Modal } from 'antd';
 
 interface IPropType {
@@ -20,7 +21,13 @@ const CustomModal = (props: IPropType) => {
   };
 
   return (
-    <Modal open={isModalOpen} onOk={handleOk} onCancel={handleCancel} footer={footer || []} closeIcon={null} >
+    <Modal
+      open={isModalOpen}
+      onOk={handleOk}
+      onCancel={handleCancel}
+      footer={footer || []}
+      closeIcon={null}
+    >
       {children}
     </Modal>
   );

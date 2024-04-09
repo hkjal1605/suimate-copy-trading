@@ -1,15 +1,17 @@
 'use client';
 
 import React, { useEffect } from 'react';
+
 import { usePathname } from 'next/navigation';
-import TraderHeader from './components/TraderHeader';
+
 import ComingSoon from './components/ComingSoon';
-import { fetchTradersStats } from './utils/fetchTradersStats';
-import TradersStats from './components/TraderStats';
-import { fetchTradersPositions } from './utils/fetchTradersPositions';
-import TradersPositions from './components/TradersPositions';
 import PastTrades from './components/PastTrades';
+import TraderHeader from './components/TraderHeader';
+import TradersPositions from './components/TradersPositions';
+import TradersStats from './components/TraderStats';
 import { fetchPastTrades } from './utils/fetchPastTrades';
+import { fetchTradersPositions } from './utils/fetchTradersPositions';
+import { fetchTradersStats } from './utils/fetchTradersStats';
 
 export default function IndividualTradersModule() {
   const pathname = usePathname();

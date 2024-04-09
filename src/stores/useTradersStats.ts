@@ -1,10 +1,10 @@
 import { createStore } from 'zustand/vanilla';
 
+import type { TradersStatsType } from '@/types/dataTypes/tradersStats';
 import createBoundedUseStore from '@/utils/createBoundedUseStore';
-import { TradersStatsType } from '@/types/dataTypes/tradersStats';
 
 type State = {
-  stats: TradersStatsType
+  stats: TradersStatsType;
   loaded: boolean;
 };
 
@@ -35,8 +35,6 @@ export const tradersStatsStore = createStore<State & Action>()((set) => ({
 }));
 
 // Create a hook to be used inside react components
-const useTradersStatsStore = createBoundedUseStore(
-  tradersStatsStore
-);
+const useTradersStatsStore = createBoundedUseStore(tradersStatsStore);
 
 export default useTradersStatsStore;

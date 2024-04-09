@@ -1,5 +1,7 @@
-import useTradersPositionsStore from '@/stores/useTradersPositions';
 import React from 'react';
+
+import useTradersPositionsStore from '@/stores/useTradersPositions';
+
 import PositionCard from './PositionCard';
 
 const TradersPositions = () => {

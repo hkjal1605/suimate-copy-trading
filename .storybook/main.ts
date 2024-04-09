@@ -5,18 +5,18 @@ const config: StorybookConfig = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
+    '@storybook/addon-interactions'
   ],
   framework: {
     name: '@storybook/nextjs',
-    options: { builder: { useSWC: true } },
+    options: { builder: { useSWC: true } }
   },
   docs: {
-    autodocs: 'tag',
+    autodocs: 'tag'
   },
   core: {
-    disableTelemetry: true,
-  },
+    disableTelemetry: true
+  }
 };
 
 export default config;
