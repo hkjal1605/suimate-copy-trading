@@ -1,7 +1,10 @@
+'use client';
+
 import CustomModal from '@/components/CustomModal';
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect } from 'react';
 import PrimaryButton from '../PrimaryButton';
+import mixpanelAnalytics from '@/utils/Analytics/mixpanel';
 
 interface IPropType {
   isOpen: boolean;
@@ -11,6 +14,12 @@ interface IPropType {
 
 const ComingSoonModal = (props: IPropType) => {
   const { isOpen, setIsOpen, featureName } = props;
+
+  useEffect(() => {
+    if (isOpen) {
+      mixpanelAnalytics.track('Coming Soon Modal Opened', { featureName });
+    }
+  }, [isOpen]);
 
   return (
     <CustomModal isModalOpen={isOpen} setIsModalOpen={setIsOpen}>
@@ -24,15 +33,24 @@ const ComingSoonModal = (props: IPropType) => {
         <p className="text-2xl text-blue-200 font-semibold mt-3">
           Building New Features
         </p>
-        <p className="text-xl font-bold text-black-700 -mt-1.5">Block by Block</p>
+        <p className="text-xl font-bold text-black-700 -mt-1.5">
+          Block by Block
+        </p>
         <p className="text-sm text-black-800 mt-3">
           Working very hard to ship this feature soon!
         </p>
         <p className="text-sm text-black-800 mb-4">
           Vote for this feature below so that I know what's needed the most
         </p>
-        <PrimaryButton className='w-2/3'>
-          <p className="text-sm text-black-800">Vote for {featureName} feature</p>
+        <PrimaryButton
+          className="w-2/3"
+          onClick={() => {
+            mixpanelAnalytics.track('Feature Vote', { featureName });
+          }}
+        >
+          <p className="text-sm text-black-800">
+            Vote for {featureName} feature
+          </p>
         </PrimaryButton>
       </div>
     </CustomModal>
