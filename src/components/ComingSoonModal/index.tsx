@@ -5,6 +5,7 @@ import Image from 'next/image';
 import React, { useEffect } from 'react';
 import PrimaryButton from '../PrimaryButton';
 import mixpanelAnalytics from '@/utils/Analytics/mixpanel';
+import {notification} from 'antd'
 
 interface IPropType {
   isOpen: boolean;
@@ -46,6 +47,9 @@ const ComingSoonModal = (props: IPropType) => {
           className="w-2/3"
           onClick={() => {
             mixpanelAnalytics.track('Feature Vote', { featureName });
+            notification.success({
+              message: 'Vote Submitted',
+            })
           }}
         >
           <p className="text-sm text-black-800">

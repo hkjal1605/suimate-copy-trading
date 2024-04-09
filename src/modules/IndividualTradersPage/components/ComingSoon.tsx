@@ -1,6 +1,8 @@
 import PrimaryButton from '@/components/PrimaryButton';
+import mixpanelAnalytics from '@/utils/Analytics/mixpanel';
 import Image from 'next/image';
 import React from 'react';
+import { notification } from 'antd';
 
 const ComingSoon = () => {
   return (
@@ -15,7 +17,19 @@ const ComingSoon = () => {
         More Charts and Analysis
       </p>
       <p className="text-black-700 text-sm">Coming Soon</p>
-      <PrimaryButton className='w-2/3'>Vote for detailed chart analysis feature</PrimaryButton>
+      <PrimaryButton
+        className="!w-2/3"
+        onClick={() => {
+          mixpanelAnalytics.track('Feature Vote', {
+            featureName: 'detailed chart analysis'
+          });
+          notification.success({
+            message: 'Vote Submitted'
+          });
+        }}
+      >
+        Vote for detailed chart analysis feature
+      </PrimaryButton>
     </div>
   );
 };
