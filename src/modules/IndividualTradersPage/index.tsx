@@ -14,7 +14,7 @@ import { fetchTradersPositions } from './utils/fetchTradersPositions';
 import { fetchTradersStats } from './utils/fetchTradersStats';
 import { fetchTradersMarketData } from './utils/fetchTradersMarketData';
 import TradersMarketData from './components/TradersMarketData';
-import { fetchMarketsData } from '../MarketsPage/utils/pollMarketsData';
+import { fetchMarketsData } from '../MarketsPage/utils/fetchMarketsData';
 
 export default function IndividualTradersModule() {
   const pathname = usePathname();

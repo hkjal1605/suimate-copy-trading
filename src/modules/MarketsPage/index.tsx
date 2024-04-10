@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react';
 import MarketsIntroFilter from './components/MarketsIntro';
-import { fetchMarketsData } from './utils/pollMarketsData';
+import { fetchMarketsData } from './utils/fetchMarketsData';
 import useMarketsDataStore from '@/stores/useMarketsDataStore';
 import MarketCard from './components/MarketCard';
 
