@@ -12,6 +12,8 @@ import TradersStats from './components/TraderStats';
 import { fetchPastTrades } from './utils/fetchPastTrades';
 import { fetchTradersPositions } from './utils/fetchTradersPositions';
 import { fetchTradersStats } from './utils/fetchTradersStats';
+import { fetchTradersMarketData } from './utils/fetchTradersMarketData';
+import TradersMarketData from './components/TradersMarketData';
 
 export default function IndividualTradersModule() {
   const pathname = usePathname();
@@ -21,6 +23,7 @@ export default function IndividualTradersModule() {
     fetchTradersStats(address);
     fetchTradersPositions(address);
     fetchPastTrades(address);
+    fetchTradersMarketData(address);
   }, [address]);
 
   return (
@@ -30,6 +33,7 @@ export default function IndividualTradersModule() {
         <ComingSoon />
         <div className="w-full h-full border-x-[1px] border-black-400 flex flex-col items-center justify-start">
           <TradersStats />
+          <TradersMarketData />
         </div>
         <div className="w-full h-full max-h-[calc(100vh-183px)] overflow-hidden flex flex-col items-center justify-start">
           <TradersPositions />

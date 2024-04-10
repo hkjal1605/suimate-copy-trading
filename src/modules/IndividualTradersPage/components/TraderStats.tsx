@@ -9,7 +9,7 @@ const TradersStats = () => {
   const { stats } = useTradersStats();
 
   return (
-    <div className="w-full flex flex-col items-center justify-start gap-3 py-3">
+    <div className="w-full flex flex-col items-center justify-start gap-3 pt-3">
       <div className="w-full flex items-center justify-between border-b-[1px] border-black-400 px-3 pb-1">
         <div className="flex flex-col items-start justify-center">
           <p className="text-base text-black-800">Account Balance</p>

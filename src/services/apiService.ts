@@ -6,6 +6,7 @@ import type { GetTopTradersApiPayload } from '@/types/apiPayload/getTopTraders';
 import {
   GET_PAST_TRADES_ENDPOINT,
   GET_TOP_TRADERS_ENDPOINT,
+  GET_TRADERS_MARKETS_ENDPOINT,
   GET_TRADER_POSITIONS_ENDPOINT,
   GET_TRADER_STATS_ENDPOINT
 } from './constants';
@@ -28,5 +29,9 @@ export default class ApiService {
     return axios.get(
       `${GET_PAST_TRADES_ENDPOINT}?address=${address}&endTimestamp=${endTimestamp}`
     );
+  }
+
+  static getTradersMarketsData(address: string) {
+    return axios.get(`${GET_TRADERS_MARKETS_ENDPOINT}?address=${address}`);
   }
 }
