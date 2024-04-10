@@ -1,3 +1,5 @@
+import MarketPageModule from '@/modules/MarketsPage';
+
 export async function generateMetadata() {
   return {
     title: 'SuiMate - Copy Trading on Sui',
@@ -7,5 +9,5 @@ export async function generateMetadata() {
 }
 
 export default function Index() {
-  return <div className="text-black-900">Hello Markets</div>;
+  return <MarketPageModule />;
 }

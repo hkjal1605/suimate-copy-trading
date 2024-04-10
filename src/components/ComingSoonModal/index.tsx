@@ -47,7 +47,7 @@ const ComingSoonModal = (props: IPropType) => {
           Vote for this feature below so that I know what&apos;s needed the most
         </p>
         <PrimaryButton
-          className="w-2/3"
+          className="!w-2/3"
           onClick={() => {
             mixpanelAnalytics.track('Feature Vote', { featureName });
             notification.success({
