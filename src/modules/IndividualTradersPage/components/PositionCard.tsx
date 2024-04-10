@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useState } from 'react';
 
 import Image from 'next/image';
 
@@ -7,6 +9,7 @@ import MarketsData from '@/constants/markets';
 import type { TradersPositionsType } from '@/types/dataTypes/tradersPositions';
 import { capitalizeFirstLetter } from '@/utils/capitaliseFirstLetter';
 import { toDecimalString } from '@/utils/parseBignum';
+import useMarketsDataStore from '@/stores/useMarketsDataStore';
 
 interface IPropType {
   position: TradersPositionsType;
@@ -14,6 +17,30 @@ interface IPropType {
 
 const PositionCard = (props: IPropType) => {
   const { position } = props;
+  const { marketsData } = useMarketsDataStore();
+
+  const [pnl, setPnl] = useState<string>('0');
+
+  useEffect(() => {
+    const marketSymbol = MarketsData[position.perpId]?.symbol!;
+    const marketDataFromStore = marketsData.find(
+      (market) => market.symbol === marketSymbol
+    );
+
+    const currentMarketPrice = toDecimalString(
+      marketDataFromStore?.marketPrice || '0',
+      18
+    );
+    const entryPrice = toDecimalString(position.avgEntryPrice);
+    const size = toDecimalString(position.size);
+
+    const positionPnl = (
+      (Number(currentMarketPrice) - Number(entryPrice)) *
+      Number(size)
+    ).toFixed(2);
+
+    setPnl(positionPnl);
+  }, [position, marketsData]);
 
   return (
     <div className="w-full flex items-center justify-between bg-black-200 border-[1px] border-transparent hover:border-black-500 transition-all duration-200 py-1 px-2 rounded-md">
@@ -47,9 +74,10 @@ const PositionCard = (props: IPropType) => {
           {capitalizeFirstLetter(position.tradeType)}
         </p>
       </div>
-
-      <p className="text-sm text-green-300 w-full text-right flex-[0.8]">
-        $24.56
+      <p
+        className={`text-sm w-full text-right flex-[0.8] ${Number(pnl) >= 0 ? 'text-green-300' : 'text-red-300'}`}
+      >
+        ${!isNaN(Number(pnl)) ? pnl : 0}
       </p>
     </div>
   );

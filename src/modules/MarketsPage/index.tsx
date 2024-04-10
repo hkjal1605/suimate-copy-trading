@@ -14,7 +14,7 @@ const MarketPageModule = () => {
 
     const interval = setInterval(() => {
       fetchMarketsData();
-    }, 2000);
+    }, 1000);
 
     return () => {
       clearInterval(interval);

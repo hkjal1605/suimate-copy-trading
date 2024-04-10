@@ -14,6 +14,7 @@ import { fetchTradersPositions } from './utils/fetchTradersPositions';
 import { fetchTradersStats } from './utils/fetchTradersStats';
 import { fetchTradersMarketData } from './utils/fetchTradersMarketData';
 import TradersMarketData from './components/TradersMarketData';
+import { fetchMarketsData } from '../MarketsPage/utils/pollMarketsData';
 
 export default function IndividualTradersModule() {
   const pathname = usePathname();
@@ -24,6 +25,16 @@ export default function IndividualTradersModule() {
     fetchTradersPositions(address);
     fetchPastTrades(address);
     fetchTradersMarketData(address);
+
+    fetchMarketsData();
+
+    const interval = setInterval(() => {
+      fetchMarketsData();
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
   }, [address]);
 
   return (

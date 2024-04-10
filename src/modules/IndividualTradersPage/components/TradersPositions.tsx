@@ -21,9 +21,11 @@ const TradersPositions = () => {
         <p className="text-sm text-black-700 w-full flex-[0.8] text-end">PnL</p>
       </div>
       <div className="w-full flex flex-col items-center justify-start gap-2 max-h-full overflow-y-auto">
-        {positions.map((position) => (
-          <PositionCard position={position} key={position.perpId} />
-        ))}
+        {positions
+          .sort((a, b) => Number(BigInt(b.size) - BigInt(a.size)))
+          .map((position) => (
+            <PositionCard position={position} key={position.perpId} />
+          ))}
       </div>
     </div>
   );
