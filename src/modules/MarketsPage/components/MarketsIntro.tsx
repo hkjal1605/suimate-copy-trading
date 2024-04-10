@@ -1,5 +1,6 @@
-import DexFilter from '@/modules/HomePage/components/DexFilter';
 import React from 'react';
+
+import DexFilter from '@/modules/HomePage/components/DexFilter';
 
 const MarketsIntroFilter = () => {
   return (

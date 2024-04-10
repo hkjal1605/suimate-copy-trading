@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { BLUEFIN_BASE_URL } from './constants';
 
 export default class BluefinApiService {

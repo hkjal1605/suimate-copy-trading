@@ -7,13 +7,13 @@ import { usePathname } from 'next/navigation';
 import ComingSoon from './components/ComingSoon';
 import PastTrades from './components/PastTrades';
 import TraderHeader from './components/TraderHeader';
+import TradersMarketData from './components/TradersMarketData';
 import TradersPositions from './components/TradersPositions';
 import TradersStats from './components/TraderStats';
 import { fetchPastTrades } from './utils/fetchPastTrades';
+import { fetchTradersMarketData } from './utils/fetchTradersMarketData';
 import { fetchTradersPositions } from './utils/fetchTradersPositions';
 import { fetchTradersStats } from './utils/fetchTradersStats';
-import { fetchTradersMarketData } from './utils/fetchTradersMarketData';
-import TradersMarketData from './components/TradersMarketData';
 import { fetchMarketsData } from '../MarketsPage/utils/fetchMarketsData';
 
 export default function IndividualTradersModule() {

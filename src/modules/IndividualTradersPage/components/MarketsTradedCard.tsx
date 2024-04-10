@@ -1,8 +1,10 @@
-import MarketsData from '@/constants/markets';
-import { TradersMarketDataType } from '@/types/dataTypes/tradersMarketData';
-import { isBignumberPositive, toDecimalString } from '@/utils/parseBignum';
 import React from 'react';
+
 import Image from 'next/image';
+
+import MarketsData from '@/constants/markets';
+import type { TradersMarketDataType } from '@/types/dataTypes/tradersMarketData';
+import { isBignumberPositive, toDecimalString } from '@/utils/parseBignum';
 
 interface IPropType {
   market: TradersMarketDataType;
@@ -38,9 +40,13 @@ const MarketsTradedCard = (props: IPropType) => {
         >
           ${toDecimalString(market.netPnl)}
         </div>
-        <div className='w-full flex flex-col items-end justify-center'>
-          <p className='text-sm text-green-300'>${toDecimalString(market.totalGain)}</p>
-          <p className='text-sm text-red-300'>${toDecimalString(market.totalLoss)}</p>
+        <div className="w-full flex flex-col items-end justify-center">
+          <p className="text-sm text-green-300">
+            ${toDecimalString(market.totalGain)}
+          </p>
+          <p className="text-sm text-red-300">
+            ${toDecimalString(market.totalLoss)}
+          </p>
         </div>
       </div>
     </div>

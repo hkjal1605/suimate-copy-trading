@@ -13,7 +13,6 @@ export const fetchTradersMarketData = async (address: string) => {
       tradersMarketData: response.data,
       loaded: true
     });
-    return response.data;
   } catch (error) {
     console.error(error);
   }

@@ -1,7 +1,9 @@
-import { MarketsDataType } from '@/types/dataTypes/marketsData';
 import React from 'react';
+
 import Image from 'next/image';
+
 import MarketsData from '@/constants/markets';
+import type { MarketsDataType } from '@/types/dataTypes/marketsData';
 import { toDecimalString } from '@/utils/parseBignum';
 
 interface IPropType {
@@ -50,7 +52,7 @@ const MarketCard = (props: IPropType) => {
         {toDecimalString(market._24hrPriceChangePercent, 18)}%
       </p>
       <p className="text-base w-full flex-1 text-yellow-200 text-end">
-        {toDecimalString(parseInt(market.lastFundingRate) * 100, 18, 5)}%
+        {toDecimalString(Number(market.lastFundingRate) * 100, 18, 5)}%
       </p>
       <div className="flex w-full flex-[0.5] justify-end items-center">
         <Image

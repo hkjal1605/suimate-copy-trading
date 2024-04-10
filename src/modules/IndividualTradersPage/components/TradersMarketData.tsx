@@ -1,5 +1,7 @@
-import useTradersMarketsDataStore from '@/stores/useTradersMarketDataStore';
 import React from 'react';
+
+import useTradersMarketsDataStore from '@/stores/useTradersMarketDataStore';
+
 import MarketsTradedCard from './MarketsTradedCard';
 
 const TradersMarketData = () => {

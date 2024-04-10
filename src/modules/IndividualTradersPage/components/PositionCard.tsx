@@ -6,10 +6,10 @@ import Image from 'next/image';
 
 import { SUI_DECIMALS } from '@/constants';
 import MarketsData from '@/constants/markets';
+import useMarketsDataStore from '@/stores/useMarketsDataStore';
 import type { TradersPositionsType } from '@/types/dataTypes/tradersPositions';
 import { capitalizeFirstLetter } from '@/utils/capitaliseFirstLetter';
 import { toDecimalString } from '@/utils/parseBignum';
-import useMarketsDataStore from '@/stores/useMarketsDataStore';
 
 interface IPropType {
   position: TradersPositionsType;
@@ -77,7 +77,7 @@ const PositionCard = (props: IPropType) => {
       <p
         className={`text-sm w-full text-right flex-[0.8] ${Number(pnl) >= 0 ? 'text-green-300' : 'text-red-300'}`}
       >
-        ${!isNaN(Number(pnl)) ? pnl : 0}
+        ${!Number.isNaN(Number(pnl)) ? pnl : 0}
       </p>
     </div>
   );

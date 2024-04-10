@@ -1,7 +1,7 @@
 import { createStore } from 'zustand/vanilla';
 
+import type { TradersMarketDataType } from '@/types/dataTypes/tradersMarketData';
 import createBoundedUseStore from '@/utils/createBoundedUseStore';
-import { TradersMarketDataType } from '@/types/dataTypes/tradersMarketData';
 
 type State = {
   tradersMarketData: TradersMarketDataType[];
@@ -9,7 +9,9 @@ type State = {
 };
 
 type Action = {
-  setTradersMarketsData: (tradersMarketData: State['tradersMarketData']) => void;
+  setTradersMarketsData: (
+    tradersMarketData: State['tradersMarketData']
+  ) => void;
 };
 
 // using createStore from zustand/vanilla instead of store because we want to use this state outside of react components
@@ -24,6 +26,8 @@ export const tradersMarketsDataStore = createStore<State & Action>()((set) => ({
 }));
 
 // Create a hook to be used inside react components
-const useTradersMarketsDataStore = createBoundedUseStore(tradersMarketsDataStore);
+const useTradersMarketsDataStore = createBoundedUseStore(
+  tradersMarketsDataStore
+);
 
 export default useTradersMarketsDataStore;

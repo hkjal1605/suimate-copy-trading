@@ -1,7 +1,7 @@
 import { createStore } from 'zustand/vanilla';
 
+import type { MarketsDataType } from '@/types/dataTypes/marketsData';
 import createBoundedUseStore from '@/utils/createBoundedUseStore';
-import { MarketsDataType } from '@/types/dataTypes/marketsData';
 
 type State = {
   marketsData: MarketsDataType[];
