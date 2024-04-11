@@ -33,7 +33,6 @@ const TradeCard = (props: IPropType) => {
           </p>
         </div>
       </div>
-
       <p className="text-sm text-black-900 w-full flex-1 text-end">
         {toDecimalString(trade.size)}
       </p>

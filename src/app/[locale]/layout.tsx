@@ -7,6 +7,7 @@ import { NextIntlClientProvider, useMessages } from 'next-intl';
 
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import ProgressBarProvider from '@/components/ProgressBarProvider';
 import { AppConfig } from '@/utils/AppConfig';
 
 export const metadata: Metadata = {
@@ -57,13 +58,15 @@ export default function RootLayout(props: {
           locale={props.params.locale}
           messages={messages}
         >
-          <div className="w-full h-full flex flex-col items-center justify-center">
-            <Header />
-            <div className="w-full max-h-[calc(100vh-115px)] min-h-[calc(100vh-115px)] overflow-auto">
-              {props.children}
+          <ProgressBarProvider>
+            <div className="w-full h-full flex flex-col items-center justify-center">
+              <Header />
+              <div className="w-full max-h-[calc(100vh-115px)] min-h-[calc(100vh-115px)] overflow-auto">
+                {props.children}
+              </div>
+              <Footer />
             </div>
-            <Footer />
-          </div>
+          </ProgressBarProvider>
         </NextIntlClientProvider>
       </body>
     </html>
