@@ -36,7 +36,7 @@ const PrototypeInfoModal = () => {
         <p className="text-base text-black-800">
           In the meantime, please do look around and let me know your thoughts,
           and what features are important to you as a trader. My DMs are always
-          open for any feedback or if you want to join the team, I am still is
+          open for any feedback or if you want to join the team, I am still in
           very early stages of team formation.
         </p>
         <p className="text-base text-black-800">
