@@ -11,6 +11,9 @@ import PrimaryButton from '@/components/PrimaryButton';
 import type { TopTradersType } from '@/types/dataTypes/topTraders';
 import getEllipsisTxt from '@/utils/getEllipsisText';
 import { isBignumberPositive, toDecimalString } from '@/utils/parseBignum';
+import useFavoriteTradersStore from '@/stores/useFavoriteTradersStore';
+import { addToFavorite, removeFromFavorite } from '../utils/modifyFavorites';
+import { useCurrentAccount } from '@mysten/dapp-kit';
 
 interface IPropType {
   trader: TopTradersType;
@@ -18,6 +21,8 @@ interface IPropType {
 
 const TraderCard = (props: IPropType) => {
   const { trader } = props;
+  const { favoriteTraders } = useFavoriteTradersStore();
+  const account = useCurrentAccount();
 
   const [isComingSoonModalOpen, setIsComingSoonModalOpen] = useState(false);
 
@@ -41,11 +46,24 @@ const TraderCard = (props: IPropType) => {
           height={14}
         />
         <Image
-          src="/assets/images/star.svg"
+          src={
+            favoriteTraders.includes(trader.address)
+              ? '/assets/images/star-filled.svg'
+              : '/assets/images/star.svg'
+          }
           alt="Favourite"
           className="ml-auto cursor-pointer"
           width={20}
           height={20}
+          onClick={() => {
+            if (!account?.address) return;
+
+            if (!favoriteTraders.includes(trader.address)) {
+              addToFavorite(account?.address, trader.address);
+            } else {
+              removeFromFavorite(account?.address, trader.address);
+            }
+          }}
         />
         <Link href={`/traders/${trader.address}`}>
           <Image

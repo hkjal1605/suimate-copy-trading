@@ -10,15 +10,24 @@ import useTopTradersStore from '@/stores/useTopTradersStore';
 import PrototypeInfoModal from './components/PrototypeInfoModal';
 import type { OrderTradersBy } from './types/orderTradersBy';
 import fetchTopTraders from './utils/fetchTopTraders';
+import { useCurrentAccount } from '@mysten/dapp-kit';
+import fetchFavoriteTraders from './utils/fetchFavoriteTraders';
 
 export default function HomePageModule() {
   const [topFilter, setTopFilter] = useState<OrderTradersBy>('netPnl');
+  const account = useCurrentAccount();
 
   const { topTraders, loaded } = useTopTradersStore();
 
   useEffect(() => {
     fetchTopTraders(topFilter);
   }, [topFilter]);
+
+  useEffect(() => {
+    if (account?.address) {
+      fetchFavoriteTraders(account.address);
+    }
+  }, [account?.address]);
 
   return (
     <div className="text-black-900 w-full">
