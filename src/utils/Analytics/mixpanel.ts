@@ -9,6 +9,10 @@ class MixpanelAnalytics {
     });
   }
 
+  identify(address: string) {
+    mixpanel.identify(address);
+  }
+
   track(eventName: string, data?: any) {
     mixpanel.track(eventName, data);
   }

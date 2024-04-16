@@ -2,11 +2,12 @@
 
 import React from 'react';
 
-import { useWallets, useConnectWallet } from '@mysten/dapp-kit';
+import { useWallets, useConnectWallet, useCurrentAccount } from '@mysten/dapp-kit';
 import { notification } from 'antd';
 import Image from 'next/image';
 
 import CustomModal from '@/components/CustomModal';
+import mixpanelAnalytics from '@/utils/Analytics/mixpanel';
 
 interface IPropType {
   isOpen: boolean;
@@ -18,9 +19,10 @@ const ConnectWalletModal = (props: IPropType) => {
   const wallets = useWallets();
   const { mutate: connect } = useConnectWallet();
 
-  const handleConnectWalletSuccess = () => {
+  const handleConnectWalletSuccess = (data: any) => {
     notification.success({ message: 'Wallet Connected' });
     setIsOpen(false);
+    mixpanelAnalytics.identify(data.accounts[0].address)
   };
 
   return (
