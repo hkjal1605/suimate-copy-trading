@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import { useWallets, useConnectWallet, useCurrentAccount } from '@mysten/dapp-kit';
+import { useWallets, useConnectWallet } from '@mysten/dapp-kit';
 import { notification } from 'antd';
 import Image from 'next/image';
 
