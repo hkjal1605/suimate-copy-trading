@@ -10,6 +10,8 @@ import Header from '@/components/Header';
 import ProgressBarProvider from '@/components/ProgressBarProvider';
 import { AppConfig } from '@/utils/AppConfig';
 
+import WalletProviderWrapper from '../WalletProviderWrapper';
+
 export const metadata: Metadata = {
   icons: [
     {
@@ -59,13 +61,15 @@ export default function RootLayout(props: {
           messages={messages}
         >
           <ProgressBarProvider>
-            <div className="w-full h-full flex flex-col items-center justify-center">
-              <Header />
-              <div className="w-full max-h-[calc(100vh-115px)] min-h-[calc(100vh-115px)] overflow-auto">
-                {props.children}
+            <WalletProviderWrapper>
+              <div className="w-full h-full flex flex-col items-center justify-center">
+                <Header />
+                <div className="w-full max-h-[calc(100vh-115px)] min-h-[calc(100vh-115px)] overflow-auto">
+                  {props.children}
+                </div>
+                <Footer />
               </div>
-              <Footer />
-            </div>
+            </WalletProviderWrapper>
           </ProgressBarProvider>
         </NextIntlClientProvider>
       </body>

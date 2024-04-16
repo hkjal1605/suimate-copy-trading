@@ -6,11 +6,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+import ConnectWallet from '../ConnectWallet';
+
 const Header = () => {
   const pathname = usePathname();
 
   return (
-    <div className="w-full flex justify-between items-center py-3 px-5 border-b-[1px] border-black-400">
+    <div className="w-full flex justify-start items-center py-3 px-5 border-b-[1px] border-black-400 gap-5">
       <div className="flex justify-start items-center gap-2">
         <Image
           src="/assets/images/logo-white.png"
@@ -27,7 +29,7 @@ const Header = () => {
           </p>
         </div>
       </div>
-      <div className="flex justify-end items-center relative">
+      <div className="flex justify-end items-center relative ml-auto">
         <Link href="/">
           <p className="text-black-900 text-base font-medium w-32 text-center cursor-pointer">
             Home
@@ -47,6 +49,7 @@ const Header = () => {
           className={`absolute bottom-[-25px] w-32 bg-blue-200 h-2 rounded-t transition-all duration-300 ${pathname === '/' ? 'left-0' : pathname === '/markets' ? 'left-32' : 'left-64'}`}
         />
       </div>
+      <ConnectWallet />
     </div>
   );
 };

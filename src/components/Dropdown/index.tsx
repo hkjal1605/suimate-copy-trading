@@ -5,12 +5,13 @@ import { Dropdown } from 'antd';
 import type { MenuProps } from 'antd';
 
 interface IPropType {
-  title: ReactNode;
+  title?: ReactNode;
   menuItems: MenuProps['items'];
+  children?: ReactNode;
 }
 
 const DropdownComponent = (props: IPropType) => {
-  const { menuItems, title } = props;
+  const { menuItems, title, children } = props;
 
   return (
     <Dropdown
@@ -22,12 +23,16 @@ const DropdownComponent = (props: IPropType) => {
       )}
       trigger={['click']}
     >
-      <a onClick={(e) => e.preventDefault()}>
-        <div className="cursor-pointer flex justify-center items-center gap-1 bg-black-200 rounded px-3 py-0.5 border-[1px] border-black-500">
-          {title}
-          <DownOutlined className="text-blue-200 w-3" />
-        </div>
-      </a>
+      {title ? (
+        <a onClick={(e) => e.preventDefault()}>
+          <div className="cursor-pointer flex justify-center items-center gap-1 bg-black-200 rounded px-3 py-0.5 border-[1px] border-black-500">
+            {title}
+            <DownOutlined className="text-blue-200 w-3" />
+          </div>
+        </a>
+      ) : (
+        children
+      )}
     </Dropdown>
   );
 };

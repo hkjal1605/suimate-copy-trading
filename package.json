@@ -33,6 +33,7 @@
     "@hookform/resolvers": "^3.3.4",
     "@libsql/client": "^0.5.2",
     "@logtail/pino": "^0.4.19",
+    "@mysten/dapp-kit": "^0.12.9",
     "@next/bundle-analyzer": "^14.1.4",
     "@sentry/nextjs": "^7.104.0",
     "@spotlightjs/spotlight": "^1.2.13",
