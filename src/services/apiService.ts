@@ -12,7 +12,7 @@ import {
   GET_TRADERS_MARKETS_ENDPOINT,
   GET_TRADER_POSITIONS_ENDPOINT,
   GET_TRADER_STATS_ENDPOINT,
-  REMOVE_FROM_FAVORITES_ENDPOINT,
+  REMOVE_FROM_FAVORITES_ENDPOINT
 } from './constants';
 
 export default class ApiService {
@@ -50,7 +50,10 @@ export default class ApiService {
     });
   }
 
-  static removeTraderFromFavoriteList(userAddress: string, traderAddress: string) {
+  static removeTraderFromFavoriteList(
+    userAddress: string,
+    traderAddress: string
+  ) {
     return axios.post(`${REMOVE_FROM_FAVORITES_ENDPOINT}`, {
       userAddress,
       traderAddress

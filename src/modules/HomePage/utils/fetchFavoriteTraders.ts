@@ -1,7 +1,6 @@
 import ApiService from '@/services/apiService';
-import { logger } from '@/utils/Logger';
-
 import { favoriteTradersStore } from '@/stores/useFavoriteTradersStore';
+import { logger } from '@/utils/Logger';
 
 const fetchFavoriteTraders = async (userAddress: string) => {
   try {

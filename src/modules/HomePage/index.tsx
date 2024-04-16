@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 
+import { useCurrentAccount } from '@mysten/dapp-kit';
+
 import Spinner from '@/components/Spinner';
 import IntroFilter from '@/modules/HomePage/components/IntroFilter';
 import TraderCard from '@/modules/HomePage/components/TraderCard';
@@ -9,9 +11,8 @@ import useTopTradersStore from '@/stores/useTopTradersStore';
 
 import PrototypeInfoModal from './components/PrototypeInfoModal';
 import type { OrderTradersBy } from './types/orderTradersBy';
-import fetchTopTraders from './utils/fetchTopTraders';
-import { useCurrentAccount } from '@mysten/dapp-kit';
 import fetchFavoriteTraders from './utils/fetchFavoriteTraders';
+import fetchTopTraders from './utils/fetchTopTraders';
 
 export default function HomePageModule() {
   const [topFilter, setTopFilter] = useState<OrderTradersBy>('netPnl');

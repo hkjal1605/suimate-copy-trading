@@ -2,18 +2,19 @@
 
 import React, { useState } from 'react';
 
+import { useCurrentAccount } from '@mysten/dapp-kit';
 import Avatar from 'boring-avatars';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import ComingSoonModal from '@/components/ComingSoonModal';
 import PrimaryButton from '@/components/PrimaryButton';
+import useFavoriteTradersStore from '@/stores/useFavoriteTradersStore';
 import type { TopTradersType } from '@/types/dataTypes/topTraders';
 import getEllipsisTxt from '@/utils/getEllipsisText';
 import { isBignumberPositive, toDecimalString } from '@/utils/parseBignum';
-import useFavoriteTradersStore from '@/stores/useFavoriteTradersStore';
+
 import { addToFavorite, removeFromFavorite } from '../utils/modifyFavorites';
-import { useCurrentAccount } from '@mysten/dapp-kit';
 
 interface IPropType {
   trader: TopTradersType;
