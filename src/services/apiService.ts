@@ -58,6 +58,8 @@ export default class ApiService {
   }
 
   static getFavoriteTraders(userAddress: string) {
-    return axios.get(`${USER_FUNCTIONS_ENDPOINT}/getUserFavorites?userAddress=${userAddress}`);
+    return axios.get(
+      `${USER_FUNCTIONS_ENDPOINT}/getUserFavorites?userAddress=${userAddress}`
+    );
   }
 }
