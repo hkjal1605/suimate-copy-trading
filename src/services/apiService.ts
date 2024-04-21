@@ -4,15 +4,12 @@ import type { GetPastTradesQuery } from '@/types/apiPayload/getPastTrades';
 import type { GetTopTradersApiPayload } from '@/types/apiPayload/getTopTraders';
 
 import {
-  ADD_TO_FAVORITES_ENDPOINT,
-  CREATE_USER_ENDPOINT,
-  GET_FAVORITES_ENDPOINT,
   GET_PAST_TRADES_ENDPOINT,
   GET_TOP_TRADERS_ENDPOINT,
   GET_TRADERS_MARKETS_ENDPOINT,
   GET_TRADER_POSITIONS_ENDPOINT,
   GET_TRADER_STATS_ENDPOINT,
-  REMOVE_FROM_FAVORITES_ENDPOINT
+  USER_FUNCTIONS_ENDPOINT
 } from './constants';
 
 export default class ApiService {
@@ -40,11 +37,11 @@ export default class ApiService {
   }
 
   static createUser(userAddress: string) {
-    return axios.post(`${CREATE_USER_ENDPOINT}`, { userAddress });
+    return axios.post(`${USER_FUNCTIONS_ENDPOINT}/createUser`, { userAddress });
   }
 
   static addTraderToFavoriteList(userAddress: string, traderAddress: string) {
-    return axios.post(`${ADD_TO_FAVORITES_ENDPOINT}`, {
+    return axios.post(`${USER_FUNCTIONS_ENDPOINT}/addToFavorites`, {
       userAddress,
       traderAddress
     });
@@ -54,13 +51,13 @@ export default class ApiService {
     userAddress: string,
     traderAddress: string
   ) {
-    return axios.post(`${REMOVE_FROM_FAVORITES_ENDPOINT}`, {
+    return axios.post(`${USER_FUNCTIONS_ENDPOINT}/removeFromFavorites`, {
       userAddress,
       traderAddress
     });
   }
 
   static getFavoriteTraders(userAddress: string) {
-    return axios.get(`${GET_FAVORITES_ENDPOINT}?userAddress=${userAddress}`);
+    return axios.get(`${USER_FUNCTIONS_ENDPOINT}/getUserFavorites?userAddress=${userAddress}`);
   }
 }
