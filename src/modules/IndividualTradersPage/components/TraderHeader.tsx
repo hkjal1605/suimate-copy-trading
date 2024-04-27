@@ -2,20 +2,21 @@
 
 import React, { useState } from 'react';
 
+import { useCurrentAccount } from '@mysten/dapp-kit';
+import { notification } from 'antd';
 import Avatar from 'boring-avatars';
 import Image from 'next/image';
 
 import ComingSoonModal from '@/components/ComingSoonModal';
-import getEllipsisTxt from '@/utils/getEllipsisText';
-import useUserDataStore from '@/stores/useUserDataStore';
 import { TELEGRAM_BOT_URL } from '@/constants';
 import useTraderAlertsListStore from '@/stores/useTraderAlertsStore';
+import useUserDataStore from '@/stores/useUserDataStore';
+import getEllipsisTxt from '@/utils/getEllipsisText';
+
 import {
   addTraderToAlertsList,
   removeTraderFromAlertsList
 } from '../utils/handleSetAlerts';
-import { useCurrentAccount } from '@mysten/dapp-kit';
-import { notification } from 'antd';
 
 interface IPropType {
   address: string;
@@ -47,13 +48,11 @@ const TraderHeader = (props: IPropType) => {
       notification.success({
         message: 'Trader removed from alerts list'
       });
-      return;
     } else {
       await addTraderToAlertsList(account?.address, address);
       notification.success({
         message: 'Trader added to alerts list'
       });
-      return;
     }
   };
 

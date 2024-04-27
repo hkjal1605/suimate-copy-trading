@@ -6,4 +6,4 @@ export type UserDataType = {
   firstName?: string;
   userName?: string;
   userId?: string;
-}
+};

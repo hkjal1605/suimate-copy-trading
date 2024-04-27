@@ -23,8 +23,8 @@ const fetchUserData = async (userAddress: string) => {
     });
 
     traderAlertsListStore.setState({
-      traderAlertsList: userData.data.alerts,
-    })
+      traderAlertsList: userData.data.alerts
+    });
   } catch (error) {
     logger.error(error);
   }

@@ -9,7 +9,7 @@ export const addTraderToAlertsList = async (
   try {
     await ApiService.addTraderToAlertList(userAddress, traderAddress);
     traderAlertsListStore.setState((state) => ({
-      traderAlertsList: [...state.traderAlertsList, traderAddress],
+      traderAlertsList: [...state.traderAlertsList, traderAddress]
     }));
   } catch (err) {
     logger.error(err);
@@ -25,9 +25,9 @@ export const removeTraderFromAlertsList = async (
     traderAlertsListStore.setState((state) => ({
       traderAlertsList: state.traderAlertsList.filter(
         (address) => address !== traderAddress
-      ),
+      )
     }));
   } catch (err) {
     logger.error(err);
   }
-}
+};

@@ -2,6 +2,7 @@
 
 import React, { useEffect } from 'react';
 
+import { useCurrentAccount } from '@mysten/dapp-kit';
 import { usePathname } from 'next/navigation';
 
 import ComingSoon from './components/ComingSoon';
@@ -14,14 +15,13 @@ import { fetchPastTrades } from './utils/fetchPastTrades';
 import { fetchTradersMarketData } from './utils/fetchTradersMarketData';
 import { fetchTradersPositions } from './utils/fetchTradersPositions';
 import { fetchTradersStats } from './utils/fetchTradersStats';
-import { fetchMarketsData } from '../MarketsPage/utils/fetchMarketsData';
-import { useCurrentAccount } from '@mysten/dapp-kit';
 import fetchUserData from '../HomePage/utils/fetchUserData';
+import { fetchMarketsData } from '../MarketsPage/utils/fetchMarketsData';
 
 export default function IndividualTradersModule() {
   const pathname = usePathname();
   const address = pathname.split('/').pop() || '';
-  const account = useCurrentAccount()
+  const account = useCurrentAccount();
 
   useEffect(() => {
     fetchTradersStats(address);

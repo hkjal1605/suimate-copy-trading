@@ -1,7 +1,7 @@
 import { createStore } from 'zustand/vanilla';
 
+import type { UserDataType } from '@/types/dataTypes/userData';
 import createBoundedUseStore from '@/utils/createBoundedUseStore';
-import { UserDataType } from '@/types/dataTypes/userData';
 
 type State = {
   userData: UserDataType;
