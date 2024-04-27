@@ -9,6 +9,7 @@ import Image from 'next/image';
 
 import ComingSoonModal from '@/components/ComingSoonModal';
 import { TELEGRAM_BOT_URL } from '@/constants';
+import fetchUserData from '@/modules/HomePage/utils/fetchUserData';
 import useTraderAlertsListStore from '@/stores/useTraderAlertsStore';
 import useUserDataStore from '@/stores/useUserDataStore';
 import getEllipsisTxt from '@/utils/getEllipsisText';
@@ -17,7 +18,6 @@ import {
   addTraderToAlertsList,
   removeTraderFromAlertsList
 } from '../utils/handleSetAlerts';
-import fetchUserData from '@/modules/HomePage/utils/fetchUserData';
 
 interface IPropType {
   address: string;
