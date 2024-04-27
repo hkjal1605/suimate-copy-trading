@@ -11,8 +11,8 @@ import useTopTradersStore from '@/stores/useTopTradersStore';
 
 import PrototypeInfoModal from './components/PrototypeInfoModal';
 import type { OrderTradersBy } from './types/orderTradersBy';
-import fetchFavoriteTraders from './utils/fetchFavoriteTraders';
 import fetchTopTraders from './utils/fetchTopTraders';
+import fetchUserData from './utils/fetchUserData';
 
 export default function HomePageModule() {
   const [topFilter, setTopFilter] = useState<OrderTradersBy>('netPnl');
@@ -26,7 +26,7 @@ export default function HomePageModule() {
 
   useEffect(() => {
     if (account?.address) {
-      fetchFavoriteTraders(account.address);
+      fetchUserData(account.address);
     }
   }, [account?.address]);
 

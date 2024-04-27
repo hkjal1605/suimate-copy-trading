@@ -4,6 +4,7 @@ import type { GetPastTradesQuery } from '@/types/apiPayload/getPastTrades';
 import type { GetTopTradersApiPayload } from '@/types/apiPayload/getTopTraders';
 
 import {
+  ALERTS_FUNCTIONS_ENDPOINT,
   GET_PAST_TRADES_ENDPOINT,
   GET_TOP_TRADERS_ENDPOINT,
   GET_TRADERS_MARKETS_ENDPOINT,
@@ -60,6 +61,38 @@ export default class ApiService {
   static getFavoriteTraders(userAddress: string) {
     return axios.get(
       `${USER_FUNCTIONS_ENDPOINT}/getUserFavorites?userAddress=${userAddress}`
+    );
+  }
+
+  static getUserData(userAddress: string) {
+    return axios.get(
+      `${USER_FUNCTIONS_ENDPOINT}/userData?userAddress=${userAddress}`
+    );
+  }
+
+  static getChatId(userAddress: string) {
+    return axios.get(
+      `${ALERTS_FUNCTIONS_ENDPOINT}/getChatId?userAddress=${userAddress}`
+    );
+  }
+
+  static addTraderToAlertList(userAddress: string, traderAddress: string) {
+    return axios.post(`${ALERTS_FUNCTIONS_ENDPOINT}/addTraderToAlerts`, {
+      userAddress,
+      traderAddress
+    });
+  }
+
+  static removeTraderFromAlertList(userAddress: string, traderAddress: string) {
+    return axios.post(`${ALERTS_FUNCTIONS_ENDPOINT}/removeTraderFromAlerts`, {
+      userAddress,
+      traderAddress
+    });
+  }
+
+  static getUserAlertList(userAddress: string) {
+    return axios.get(
+      `${ALERTS_FUNCTIONS_ENDPOINT}/getTraderAlertsListForUser?userAddress=${userAddress}`
     );
   }
 }

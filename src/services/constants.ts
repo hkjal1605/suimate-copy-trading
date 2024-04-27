@@ -10,5 +10,7 @@ export const GET_TRADERS_MARKETS_ENDPOINT =
   'https://gettradersmarketdata-ylp2jhbl2q-uc.a.run.app';
 export const USER_FUNCTIONS_ENDPOINT =
   'https://userfunctions-ylp2jhbl2q-uc.a.run.app';
+export const ALERTS_FUNCTIONS_ENDPOINT =
+  'https://alertsfunctions-ylp2jhbl2q-uc.a.run.app';
 
 export const BLUEFIN_BASE_URL = 'https://dapi.api.sui-prod.bluefin.io';

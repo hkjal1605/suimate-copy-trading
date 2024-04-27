@@ -15,10 +15,13 @@ import { fetchTradersMarketData } from './utils/fetchTradersMarketData';
 import { fetchTradersPositions } from './utils/fetchTradersPositions';
 import { fetchTradersStats } from './utils/fetchTradersStats';
 import { fetchMarketsData } from '../MarketsPage/utils/fetchMarketsData';
+import { useCurrentAccount } from '@mysten/dapp-kit';
+import fetchUserData from '../HomePage/utils/fetchUserData';
 
 export default function IndividualTradersModule() {
   const pathname = usePathname();
   const address = pathname.split('/').pop() || '';
+  const account = useCurrentAccount()
 
   useEffect(() => {
     fetchTradersStats(address);
@@ -36,6 +39,12 @@ export default function IndividualTradersModule() {
       clearInterval(interval);
     };
   }, [address]);
+
+  useEffect(() => {
+    if (account?.address) {
+      fetchUserData(account.address);
+    }
+  }, [account?.address]);
 
   return (
     <div className="w-full flex flex-col items-center justify-start h-[calc(100vh-116px)]">

@@ -7,15 +7,55 @@ import Image from 'next/image';
 
 import ComingSoonModal from '@/components/ComingSoonModal';
 import getEllipsisTxt from '@/utils/getEllipsisText';
+import useUserDataStore from '@/stores/useUserDataStore';
+import { TELEGRAM_BOT_URL } from '@/constants';
+import useTraderAlertsListStore from '@/stores/useTraderAlertsStore';
+import {
+  addTraderToAlertsList,
+  removeTraderFromAlertsList
+} from '../utils/handleSetAlerts';
+import { useCurrentAccount } from '@mysten/dapp-kit';
+import { notification } from 'antd';
 
 interface IPropType {
   address: string;
 }
 
 const TraderHeader = (props: IPropType) => {
+  const account = useCurrentAccount();
+  const { userData } = useUserDataStore();
+  const { traderAlertsList } = useTraderAlertsListStore();
   const [isComingSoonModalOpen, setIsComingSoonModalOpen] = useState(false);
   const [feature, setFeature] = useState('');
   const { address } = props;
+
+  const handleSetAlertsClick = async () => {
+    if (!account?.address) {
+      notification.error({
+        message: 'Please connect your wallet to set alerts'
+      });
+      return;
+    }
+
+    if (!userData.chatId) {
+      window.open(`${TELEGRAM_BOT_URL}?start=${userData.userId}`, '_blank');
+      return;
+    }
+
+    if (traderAlertsList.includes(address)) {
+      await removeTraderFromAlertsList(account?.address, address);
+      notification.success({
+        message: 'Trader removed from alerts list'
+      });
+      return;
+    } else {
+      await addTraderToAlertsList(account?.address, address);
+      notification.success({
+        message: 'Trader added to alerts list'
+      });
+      return;
+    }
+  };
 
   return (
     <div className="w-full flex px-5 py-3 justify-start items-center gap-4 border-b-[1px] border-black-400">
@@ -84,18 +124,23 @@ const TraderHeader = (props: IPropType) => {
       <div className=" h-10 w-px bg-black-400" />
       <div
         className="flex justify-center items-center gap-1 cursor-pointer"
-        onClick={() => {
-          setFeature('Notification Alerts');
-          setIsComingSoonModalOpen(true);
-        }}
+        onClick={handleSetAlertsClick}
       >
         <Image
-          src="/assets/images/bell.svg"
+          src={
+            traderAlertsList.includes(address)
+              ? '/assets/images/bell-filled.svg'
+              : '/assets/images/bell.svg'
+          }
           alt="bell"
           width={16}
           height={16}
         />
-        <p className="text-base text-black-800">Notify on New Trades</p>
+        <p className="text-base text-black-800">
+          {traderAlertsList.includes(address)
+            ? 'Notifications ON'
+            : 'Notify on New Trades'}
+        </p>
       </div>
       <div className=" h-10 w-px bg-black-400" />
       <div
