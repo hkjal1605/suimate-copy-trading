@@ -17,6 +17,7 @@ import {
   addTraderToAlertsList,
   removeTraderFromAlertsList
 } from '../utils/handleSetAlerts';
+import fetchUserData from '@/modules/HomePage/utils/fetchUserData';
 
 interface IPropType {
   address: string;
@@ -37,6 +38,8 @@ const TraderHeader = (props: IPropType) => {
       });
       return;
     }
+
+    await fetchUserData(account.address);
 
     if (!userData.chatId) {
       window.open(`${TELEGRAM_BOT_URL}?start=${userData.userId}`, '_blank');
