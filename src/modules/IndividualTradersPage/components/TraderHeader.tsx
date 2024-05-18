@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 
-import { useCurrentAccount } from '@mysten/dapp-kit';
+import { useWallet } from '@suiet/wallet-kit';
 import { notification } from 'antd';
 import Avatar from 'boring-avatars';
 import Image from 'next/image';
@@ -18,16 +18,18 @@ import {
   addTraderToAlertsList,
   removeTraderFromAlertsList
 } from '../utils/handleSetAlerts';
+import CreateTradeAccountModal from './CreateTradeAccountModal';
 
 interface IPropType {
   address: string;
 }
 
 const TraderHeader = (props: IPropType) => {
-  const account = useCurrentAccount();
+  const { account } = useWallet();
   const { userData } = useUserDataStore();
   const { traderAlertsList } = useTraderAlertsListStore();
   const [isComingSoonModalOpen, setIsComingSoonModalOpen] = useState(false);
+  const [isTradeAccountModalOpen, setIsTradeAccountModalOpen] = useState(false);
   const [feature, setFeature] = useState('');
   const { address } = props;
 
@@ -148,8 +150,7 @@ const TraderHeader = (props: IPropType) => {
       <div
         className="flex justify-center items-center gap-1 cursor-pointer"
         onClick={() => {
-          setFeature('Place Trade');
-          setIsComingSoonModalOpen(true);
+          setIsTradeAccountModalOpen(true);
         }}
       >
         <Image
@@ -164,6 +165,10 @@ const TraderHeader = (props: IPropType) => {
         isOpen={isComingSoonModalOpen}
         setIsOpen={setIsComingSoonModalOpen}
         featureName={feature}
+      />
+      <CreateTradeAccountModal
+        isOpen={isTradeAccountModalOpen}
+        setIsOpen={setIsTradeAccountModalOpen}
       />
     </div>
   );

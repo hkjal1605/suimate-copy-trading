@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 
-import { useCurrentAccount } from '@mysten/dapp-kit';
+import { useWallet } from '@suiet/wallet-kit';
 import Avatar from 'boring-avatars';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -23,7 +23,7 @@ interface IPropType {
 const TraderCard = (props: IPropType) => {
   const { trader } = props;
   const { favoriteTraders } = useFavoriteTradersStore();
-  const account = useCurrentAccount();
+  const { account } = useWallet();
 
   const [isComingSoonModalOpen, setIsComingSoonModalOpen] = useState(false);
 

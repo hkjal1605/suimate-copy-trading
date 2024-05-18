@@ -2,8 +2,8 @@
 
 import React from 'react';
 
-import { useWallets, useConnectWallet } from '@mysten/dapp-kit';
-import { notification } from 'antd';
+import { useWallet } from '@suiet/wallet-kit';
+import { message, notification } from 'antd';
 import Image from 'next/image';
 
 import CustomModal from '@/components/CustomModal';
@@ -17,14 +17,26 @@ interface IPropType {
 
 const ConnectWalletModal = (props: IPropType) => {
   const { isOpen, setIsOpen } = props;
-  const wallets = useWallets();
-  const { mutate: connect } = useConnectWallet();
+  const wallet = useWallet();
 
-  const handleConnectWalletSuccess = (data: any) => {
+  console.log(wallet);
+
+  const handleConnectWallet = async (walletName: string) => {
+    try {
+      await wallet.select(walletName);
+      const address = wallet.address;
+      handleConnectWalletSuccess(address);
+    } catch (err: any) {
+      console.log(err);
+      notification.error({ message: 'Error connecting wallet' + err.message });
+    }
+  };
+
+  const handleConnectWalletSuccess = (address: string) => {
     notification.success({ message: 'Wallet Connected' });
     setIsOpen(false);
-    mixpanelAnalytics.identify(data.accounts[0].address);
-    ApiService.createUser(data.accounts[0].address);
+    mixpanelAnalytics.identify(address);
+    ApiService.createUser(address);
   };
 
   return (
@@ -32,27 +44,20 @@ const ConnectWalletModal = (props: IPropType) => {
       <div className="flex w-full p-4 bg-black-200 border-[1px] border-black-400 rounded-lg flex-col items-start justify-center gap-4">
         <p className="text-base text-black-800">Connect Your Wallet</p>
         <div className="w-full flex flex-col items-center justify-center gap-2">
-          {wallets.map((wallet) => (
+          {wallet.configuredWallets.map((walletData) => (
             <div
-              key={wallet.name}
+              key={walletData.name}
               className="bg-black-300 w-full rounded-md cursor-pointer border-2 border-black-400 hover:border-black-500 flex justify-start items-center px-3 py-2 gap-2"
-              onClick={() => {
-                connect(
-                  { wallet },
-                  {
-                    onSuccess: handleConnectWalletSuccess
-                  }
-                );
-              }}
+              onClick={() => handleConnectWallet(walletData.name)}
             >
               <Image
-                src={wallet.icon}
-                alt={wallet.name}
+                src={walletData.iconUrl}
+                alt={walletData.name}
                 width={24}
                 height={24}
               />
               <p className="text-black-800 text-base font-medium">
-                {wallet.name}
+                {walletData.name}
               </p>
             </div>
           ))}

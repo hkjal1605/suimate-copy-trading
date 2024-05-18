@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 
-import { useCurrentAccount, useDisconnectWallet } from '@mysten/dapp-kit';
+import { useWallet } from '@suiet/wallet-kit';
 import Image from 'next/image';
 
 import getEllipsisTxt from '@/utils/getEllipsisText';
@@ -12,8 +12,8 @@ import DropdownComponent from '../Dropdown';
 
 const ConnectWallet = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const account = useCurrentAccount();
-  const { mutate: disconnect } = useDisconnectWallet();
+  const wallet = useWallet();
+  const account = wallet.account;
 
   return (
     <div>
@@ -24,7 +24,7 @@ const ConnectWallet = () => {
               label: (
                 <div
                   className="flex justify-start items-center gap-1 cursor-pointer"
-                  onClick={() => disconnect()}
+                  onClick={() => wallet.disconnect()}
                 >
                   <Image
                     src="/assets/images/disconnect.svg"

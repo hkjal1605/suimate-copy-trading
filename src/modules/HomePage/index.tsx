@@ -2,8 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-import { useCurrentAccount } from '@mysten/dapp-kit';
-
+import { useWallet } from '@suiet/wallet-kit';
 import Spinner from '@/components/Spinner';
 import IntroFilter from '@/modules/HomePage/components/IntroFilter';
 import TraderCard from '@/modules/HomePage/components/TraderCard';
@@ -16,7 +15,7 @@ import fetchUserData from './utils/fetchUserData';
 
 export default function HomePageModule() {
   const [topFilter, setTopFilter] = useState<OrderTradersBy>('netPnl');
-  const account = useCurrentAccount();
+  const { account } = useWallet();
 
   const { topTraders, loaded } = useTopTradersStore();
 

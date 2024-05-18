@@ -1,6 +1,7 @@
 {
   "name": "next-js-boilerplate",
   "version": "3.43.0",
+  "type": "module",
   "scripts": {
     "dev:spotlight": "spotlight-sidecar",
     "dev:next": "next dev --port 3005",
@@ -28,16 +29,19 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.3.6",
+    "@bluefin-exchange/bluefin-v2-client": "^5.2.34",
     "@clerk/localizations": "^1.26.16",
     "@clerk/nextjs": "^4.29.9",
     "@hookform/resolvers": "^3.3.4",
     "@libsql/client": "^0.5.2",
     "@logtail/pino": "^0.4.19",
     "@mysten/dapp-kit": "^0.12.9",
+    "@mysten/sui.js": "^0.54.1",
     "@next/bundle-analyzer": "^14.1.4",
     "@sentry/nextjs": "^7.104.0",
     "@spotlightjs/spotlight": "^1.2.13",
     "@storybook/test": "^7.6.17",
+    "@suiet/wallet-kit": "^0.2.24",
     "@t3-oss/env-nextjs": "^0.9.2",
     "antd": "^5.15.3",
     "axios": "^1.6.8",
