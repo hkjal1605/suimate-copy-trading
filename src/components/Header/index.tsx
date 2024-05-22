@@ -28,6 +28,19 @@ const Header = () => {
             Copy Trading on Sui
           </p>
         </div>
+        <p className="text-blue-200 text-base font-medium ml-10">Perps</p>
+        <a href="https://spot.suimate.trade" target="_blank" className="ml-10">
+          <p className="text-black-900 text-base font-medium">Spot</p>
+        </a>
+        <a
+          href="https://liquidity.suimate.trade"
+          target="_blank"
+          className="ml-10"
+        >
+          <p className="text-black-900 text-base font-medium">
+            Liquidity Supply
+          </p>
+        </a>
       </div>
       <div className="flex justify-end items-center relative ml-auto">
         <Link href="/">
